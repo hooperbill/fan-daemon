@@ -1,4 +1,4 @@
-# jetson fan control daemon
+# Jetson Nano fan control daemon
 Fan control daemon for the Nvidia Jetson Nano. Written in C++ to reduce the memory usage.
 
 ## Requirements:
