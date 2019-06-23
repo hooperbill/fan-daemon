@@ -54,3 +54,15 @@
 	<signal.h>
 	<glob.h>
 
+1561266384 source:/home/william/GitRepos/fan-daemon/fan-daemon.cpp
+	"fan-daemon.h"
+
+1561266650 /home/william/GitRepos/fan-daemon/fan-daemon.h
+	<iostream>
+	<algorithm>
+	<fstream>
+	<chrono>
+	<thread>
+	<signal.h>
+	<glob.h>
+

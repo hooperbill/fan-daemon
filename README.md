@@ -1,6 +1,10 @@
 # Jetson Nano fan control daemon
 Fan control daemon for the Nvidia Jetson Nano. Written in C++ to reduce the memory usage.
 
+This project is based off a similar project written in Python and found here
+
+https://github.com/Pyrestone/jetson-fan-ctl
+
 ## Requirements:
 
 ### Hardware
