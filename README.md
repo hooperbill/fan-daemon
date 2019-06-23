@@ -46,7 +46,9 @@ In the project directory open fan_control.h in Code::Blocks or with your favorit
 editor and modify the following defines:
 
 <code>#define FAN_OFF_TEMP 20</code>
+
 <code>#define FAN_MAX_TEMP 60</code>
+
 <code>#define UPDATE_INTERVAL 2</code>
 
 <code>FAN_OFF_TEMP</code> is the temperature (°C) below which the fan is turned off.
