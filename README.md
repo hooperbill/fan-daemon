@@ -31,9 +31,10 @@ It's a set-it-and-forget-it type thing, unless you want to modify the fan speeds
 ## How to customize:
 Open fan_control.h and modify the following defines:
 
-#define FAN_OFF_TEMP 20
+<code>#define FAN_OFF_TEMP 20
 #define FAN_MAX_TEMP 60
 #define UPDATE_INTERVAL 2
+</code>
 
 <code>FAN_OFF_TEMP</code> is the temperature (°C) below which the fan is turned off.
 <code>FAN_MAX_TEMP</code> is the temperature (°C) above which the fan is at 100% speed.
