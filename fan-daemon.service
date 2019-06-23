@@ -1,0 +1,11 @@
+[Unit]
+Description=Fan control daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/fan-daemon/fan-daemon
+User=root
+StandardOutput=journal+console
+
+[Install]
+WantedBy=multi-user.target

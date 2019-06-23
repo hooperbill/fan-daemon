@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1561247100 source:/home/william/Projects/fan_control/main.cpp
+	<iostream>
+	<algorithm>
+	<fstream>
+	<glob.h>
+
+1561255624 source:/home/william/Projects/fan_control/fan_control.cpp
+	"fan_control.h"
+
+1561257220 /home/william/Projects/fan_control/fan_control.h
+	<iostream>
+	<algorithm>
+	<fstream>
+	<glob.h>
+	<chrono>
+	<thread>
+
+1561258894 source:/home/william/Projects/fan_daemon/fan_daemon.cpp
+	"fan_daemon.h"
+
+1561257220 /home/william/Projects/fan_daemon/fan_daemon.h
+	<iostream>
+	<algorithm>
+	<fstream>
+	<glob.h>
+	<chrono>
+	<thread>
+
+1561263666 source:/home/william/Projects/fan_daemon/fan-daemon.cpp
+	"fan-daemon.h"
+
+1561263559 /home/william/Projects/fan_daemon/fan-daemon.h
+	<iostream>
+	<algorithm>
+	<fstream>
+	<glob.h>
+	<chrono>
+	<thread>
+	<signal.h>
+	<stdlib.h>
+	<stdio.h>
+	<unistd.h>
+
+1561266384 source:/home/william/Projects/fan-daemon/fan-daemon.cpp
+	"fan-daemon.h"
+
+1561266650 /home/william/Projects/fan-daemon/fan-daemon.h
+	<iostream>
+	<algorithm>
+	<fstream>
+	<chrono>
+	<thread>
+	<signal.h>
+	<glob.h>
+
