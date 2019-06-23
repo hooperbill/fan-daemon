@@ -65,14 +65,13 @@ int main(int argc, char *argv[])
 
     init_exit_handler();
 
-    system("/usr/bin/jetson_clocks");
-    writeIntSysFs("/sys/devices/pwm-fan/temp_control", 0);
+    system(JETSON_CLOCKS);
 
     while (true)
     {
         temp = readAverageTemp();
         pwmValue = adjustFanSpeed( temp,  pwmCap);
-        writeIntSysFs("/sys/devices/pwm-fan/target_pwm", pwmValue);
+        writeIntSysFs(TARGET_PWM, pwmValue);
         this_thread::sleep_for(chrono::milliseconds(UPDATE_INTERVAL * MICRO_SECONDS));
     }
 
@@ -89,7 +88,7 @@ unsigned readAverageTemp()
     glob_t globResult;
 
     averageTemp = 0;
-    glob("/sys/devices/virtual/thermal/thermal_zone*/temp", GLOB_TILDE, NULL, &globResult);
+    glob(THERMAL_ZONE_GLOB, GLOB_TILDE, NULL, &globResult);
     for(unsigned i = 0; i < globResult.gl_pathc; ++i)
     {
         averageTemp += readIntSysFs(globResult.gl_pathv[i]);
@@ -103,7 +102,7 @@ unsigned readAverageTemp()
 */
 unsigned getPwmCap()
 {
-    return readIntSysFs("/sys/devices/pwm-fan/pwm_cap");
+    return readIntSysFs(PWM_CAP);
 }
 
 /**

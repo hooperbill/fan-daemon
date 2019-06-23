@@ -22,28 +22,38 @@ Use the standard Linux image on your Jetson Nano.
 
 ## How to install:
 
-The code is contained in a Code::Blocks project. Load the project into Code::Blocks,
-select the Release build and build the project. In a terminal cd to the project
-directory to run the install script.
+The code is contained in a Code::Blocks project. You do not need to install
+Code::Blocks to build the project. To build without Code::BLocks cd into the
+project directory and execute
+
+    make all
+
+This will build the project and place the executable in the project's
+./bin/Release directory.
+
+If you have Code:Blocks you can load the project into Code::Blocks,select the
+Release build and build the project.
+
+Once you have built the project from the project directory exceute the install script.
 
     ./install.sh
 
 The script will install the fan-daemon as a system service which excecutes at run-time.
-
 It's a set-it-and-forget-it type thing, unless you want to modify the fan speeds.
 
 ## How to customize:
-Open fan_control.h and modify the following defines:
+In the project directory open fan_control.h in Code::Blocks or with your favorite
+editor and modify the following defines:
 
-<code>#define FAN_OFF_TEMP 20
-#define FAN_MAX_TEMP 60
-#define UPDATE_INTERVAL 2
-</code>
+<code>#define FAN_OFF_TEMP 20</code>
+<code>#define FAN_MAX_TEMP 60</code>
+<code>#define UPDATE_INTERVAL 2</code>
 
 <code>FAN_OFF_TEMP</code> is the temperature (°C) below which the fan is turned off.
 <code>FAN_MAX_TEMP</code> is the temperature (°C) above which the fan is at 100% speed.
 
-The daemon will interpolate linearly between these two points.
+The daemon will interpolate linearly between these two points to determine the
+appropriate fan speed.
 
 <code>UPDATE_INTERVAL</code> tells the daemon how often to update the fan speed (in seconds).
 
