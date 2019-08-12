@@ -33,7 +33,7 @@ static unsigned pwmCap;
 */
 void exit_handler(int s)
 {
-    writeIntSysFs("/sys/devices/pwm-fan/target_pwm", pwmCap);
+    writeIntSysFs(TARGET_PWM, pwmCap);
     exit(1);
 }
 
@@ -111,7 +111,7 @@ unsigned getPwmCap()
 */
 unsigned adjustFanSpeed(unsigned temp, unsigned pwmCap)
 {
-    unsigned speed = pwmCap * (temp - FAN_OFF_TEMP) / (FAN_MAX_TEMP - FAN_OFF_TEMP);
+    unsigned speed = pwmCap * max(0, (int)(temp - FAN_OFF_TEMP)) / (FAN_MAX_TEMP - FAN_OFF_TEMP);
 
     return min((unsigned)max((unsigned)0, speed), pwmCap);
 }
