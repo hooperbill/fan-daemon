@@ -60,6 +60,7 @@ int main(int argc, char *argv[])
 {
     unsigned temp;
     unsigned pwmValue;
+    unsigned lastPwmValue = 0;
 
     pwmCap = getPwmCap();
 
@@ -71,7 +72,11 @@ int main(int argc, char *argv[])
     {
         temp = readAverageTemp();
         pwmValue = adjustFanSpeed( temp,  pwmCap);
-        writeIntSysFs(TARGET_PWM, pwmValue);
+        if (pwmValue != lastPwmValue)
+        {
+            writeIntSysFs(TARGET_PWM, pwmValue);
+            lastPwmValue = pwmValue;
+        }
         this_thread::sleep_for(chrono::milliseconds(UPDATE_INTERVAL * MICRO_SECONDS));
     }
 
