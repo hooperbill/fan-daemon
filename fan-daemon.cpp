@@ -93,13 +93,19 @@ unsigned readAverageTemp()
     glob_t globResult;
 
     averageTemp = 0;
-    glob(THERMAL_ZONE_GLOB, GLOB_TILDE, NULL, &globResult);
+    if (glob(THERMAL_ZONE_GLOB, GLOB_TILDE, NULL, &globResult) != 0 || globResult.gl_pathc == 0)
+    {
+        globfree(&globResult);
+        return 0;
+    }
     for(unsigned i = 0; i < globResult.gl_pathc; ++i)
     {
         averageTemp += readIntSysFs(globResult.gl_pathv[i]);
     }
 
-    return (averageTemp / globResult.gl_pathc) / 1000;
+    averageTemp = (averageTemp / globResult.gl_pathc) / 1000;
+    globfree(&globResult);
+    return averageTemp;
 }
 
 /**
@@ -144,4 +150,3 @@ void writeIntSysFs(string path, unsigned value)
     outfs << value;
     outfs.close();
 }
-
